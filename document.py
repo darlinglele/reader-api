@@ -23,6 +23,15 @@ def stop():
 		except Exception, e:
 			print e
 
+def get_site_items(site_title):
+	documents =client.rss.documents
+	sort_condition = [("published_parsed", -1)]
+	limit_size = 100
+	query = {'site_title': site_title}
+	items = documents.find(query).sort(
+		sort_condition).limit(limit_size)	
+	return list(items)
+
 def get_all_items():
 	site_urls = [line.strip() for line in open('thinkhard/sites.txt')]		
 	documents =client.rss.documents
