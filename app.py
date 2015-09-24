@@ -7,11 +7,14 @@ import util
 import json
 from pymongo import MongoClient
 from bson import json_util
+from flask.ext.cors import CORS
+
  
 client = MongoClient("linzhixiong.com")
 documents = client.rss.documents
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/document/<id>")
 def get_document(id):
