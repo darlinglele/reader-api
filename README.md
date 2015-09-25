@@ -6,4 +6,4 @@ pip install flask-cors
 
 运行：
 
-python hello.py
+nohup python hello.py &
